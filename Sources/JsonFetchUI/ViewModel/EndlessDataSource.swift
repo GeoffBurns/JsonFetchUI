@@ -10,7 +10,7 @@ import Utilities
 
 
 /**Custom decoder for dates*/
-public class DecoderWithDates: JSONDecoder {
+open class DecoderWithDates: JSONDecoder {
     public override func decode<T>(_ type: T.Type, from data: Data) throws -> T where T : Decodable {
         let decoder = JSONDecoder()
         let dateFormatter = DateFormatter()
@@ -20,7 +20,7 @@ public class DecoderWithDates: JSONDecoder {
         return try decoder.decode(T.self, from: data)
     }
 }
-public class EndlessDataSource<T : Equatable, TResponse : Decodable>: ObservableObject {
+open class EndlessDataSource<T : Equatable, TResponse : Decodable>: ObservableObject {
     var fetcher: JsonFetcher
     @Published public var items = [T]()
     @Published public var isLoadingPage = false
