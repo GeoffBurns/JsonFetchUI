@@ -14,9 +14,9 @@ public struct JsonFetcher {
     
     static let cache = CustomCache<String, Decodable>()
     static let shared = JsonFetcher()
-    var decoder : JSONDecoder = JSONDecoder()
+    public var decoder : JSONDecoder = JSONDecoder()
     
-    var isCaching = true
+    public var isCaching = true
     
     
     
