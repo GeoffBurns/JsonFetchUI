@@ -25,7 +25,7 @@ open class EndlessDataSource<T : Equatable, TResponse : Decodable>: ObservableOb
     @Published public var items = [T]()
     @Published public var isLoadingPage = false
     
-    init()
+    public init()
     {
         fetcher = JsonFetcher()
         fetcher.decoder  = DecoderWithDates()
@@ -33,15 +33,15 @@ open class EndlessDataSource<T : Equatable, TResponse : Decodable>: ObservableOb
     
     var canLoadMorePages : Bool { !urlOfNextPage.isEmpty }
     
-    var urlOfNextPage = ""
+    public var urlOfNextPage = ""
     
     var cancellables = Set<AnyCancellable>()
     
-    func getItems(response :TResponse ) -> [T]
+    open func getItems(response :TResponse ) -> [T]
     {
         return undefined("getItem not overriden")
     }
-    func getUrlOfNextPage(response :TResponse ) -> String
+    open func getUrlOfNextPage(response :TResponse ) -> String
     {
         return undefined("getUrlOfNextPage not overriden")
     }
@@ -49,7 +49,7 @@ open class EndlessDataSource<T : Equatable, TResponse : Decodable>: ObservableOb
     {
         
     }
-    func loadMoreContent() {
+    public func loadMoreContent() {
         guard !isLoadingPage && canLoadMorePages else {
           NoOp(nil)
           return
@@ -82,7 +82,7 @@ open class EndlessDataSource<T : Equatable, TResponse : Decodable>: ObservableOb
       }
     
   
-    func loadMoreContentIfNeeded(currentItem item: T?) {
+    public func loadMoreContentIfNeeded(currentItem item: T?) {
       guard let item = item else {
         loadMoreContent()
         return

@@ -11,10 +11,15 @@ import Combine
 import SwiftUI
 
 open class FetchViewModel: ObservableObject {
-    var fetcher: JsonFetcher = JsonFetcher.shared
+    var fetcher: JsonFetcher
     
-    var cancellables = Set<AnyCancellable>()
+    var cancellables : Set<AnyCancellable>
     
+    public init()
+    {
+        fetcher = JsonFetcher.shared
+        cancellables = Set<AnyCancellable>()
+    }
     public func fetchData<T: Decodable>(url : String ) -> AnyPublisher<T, FetchError> {
         return fetcher.fetch(from: url)
             .eraseToAnyPublisher()
