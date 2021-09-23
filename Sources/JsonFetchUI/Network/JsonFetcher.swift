@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 
-struct JsonFetcher {
+public struct JsonFetcher {
     
     static let cache = CustomCache<String, Decodable>()
     static let shared = JsonFetcher()

@@ -1,3 +1,3 @@
 # JsonFetchui
 
-A description of this package.
+ SwiftUI Utilities to Fetch JSON data from web Services

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FetchError: Error { 
+public enum FetchError: Error {
     case jsonError(String)      // parsing error / illegal JSON
     case httpError(Int)         // bad response from server
     case unknown                // url badly formed?
