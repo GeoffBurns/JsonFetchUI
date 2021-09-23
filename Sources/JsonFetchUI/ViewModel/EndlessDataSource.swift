@@ -21,7 +21,7 @@ open class DecoderWithDates: JSONDecoder {
     }
 }
 open class EndlessDataSource<T : Equatable, TResponse : Decodable>: ObservableObject {
-    var fetcher: JsonFetcher
+    public var fetcher: JsonFetcher
     @Published public var items = [T]()
     @Published public var isLoadingPage = false
     

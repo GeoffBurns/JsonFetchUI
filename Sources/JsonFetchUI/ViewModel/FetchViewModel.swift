@@ -11,7 +11,7 @@ import Combine
 import SwiftUI
 
 open class FetchViewModel: ObservableObject {
-    var fetcher: JsonFetcher
+    public var fetcher: JsonFetcher
     
     var cancellables : Set<AnyCancellable>
     
